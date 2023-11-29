@@ -1,20 +1,17 @@
 package com.example.projectmanageclientmvc.controller;
 
-import com.example.projectmanageclientmvc.model.Project;
-import com.example.projectmanageclientmvc.service.ProjectService;
+import org.ProjectService.Project;
+import org.ProjectService.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
 
 
 @Controller
 @RequestMapping("/projects")
 public class ManageProjectsController {
 
-    @Autowired
     private ProjectService projectService;
 
     @GetMapping

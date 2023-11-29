@@ -37,8 +37,13 @@
 
         <div class="form-group">
             <label for="priority">Priority:</label>
-            <input type="text" id="priority" th:field="*{priority}" class="form-control" required>
+            <select id="priority" th:field="*{priority}" class="form-control" required>
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+            </select>
         </div>
+
 
         <button type="submit" class="btn btn-primary">Update Project</button>
     </form>

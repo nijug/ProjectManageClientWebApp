@@ -10,25 +10,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
-<body>
+<body class="bg-light">
 <div class="container">
     <h2>Add Project</h2>
 
     <form th:action="@{/projects/add}" method="post" th:object="${project}">
+        <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" th:value="${project?.name}" required>
-
+        </div>
+        <div class="form-group">
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" th:value="${project?.description}" required>
-
+        </div>
+        <div class="form-group">
         <label for="dateStarted">Date Started:</label>
         <input type="date" id="dateStarted" name="dateStarted" th:value="${project?.dateStarted}" required>
-
+        </div>
+        <div class="form-group">
         <label for="dateEnded">Date Ended:</label>
         <input type="date" id="dateEnded" name="dateEnded" th:value="${project?.dateEnded}" required>
+        </div>
 
-        <label for="priority">Priority:</label>
-        <input type="text" id="priority" name="priority" th:value="${project?.priority}" required>
+
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" th:value="${project?.priority}"  class="form-control" required>
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+        </div>
 
         <button type="submit">Add Project</button>
     </form>
