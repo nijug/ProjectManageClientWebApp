@@ -1,13 +1,21 @@
-<!-- src/main/resources/templates/index.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Management</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-<h2>Welcome to Project Management</h2>
+<body class="bg-light">
+<div class="container">
+    <h2 class="text-center mt-4">Welcome to Project Management</h2>
 
-<p><a th:href="@{/projects/new}">Add a New Project</a></p>
-<p><a th:href="@{/projects}">View Projects</a></p>
+    <div class="d-flex justify-content-center">
+        <a th:href="@{/projects/new}" class="btn btn-primary mt-3 mr-2">Add a New Project</a>
+        <a th:href="@{/projects}" class="btn btn-secondary mt-3">View Projects</a>
+    </div>
+</div>
 </body>
 </html>

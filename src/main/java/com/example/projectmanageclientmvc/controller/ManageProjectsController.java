@@ -20,8 +20,6 @@ public class ManageProjectsController {
     @GetMapping
     public String showManageProjects(Model model) {
         Project[] projects = projectService.readProjects();
-        Arrays.stream(projects).forEach(System.out::println);
-        System.out.println(projects[0].getName());
         model.addAttribute("projects", projects);
         return "manage-projects";
     }

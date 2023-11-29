@@ -116,17 +116,5 @@ public class ProjectService {
 
         return null;
     }
-    @Getter
-    public static class AppData {
-        @JsonProperty("URL")
-        private String URL;
-        @JsonProperty("create_endpoint")
-        private String create_endpoint;
-        @JsonProperty("read_all_endpoint")
-        private String read_all_endpoint;
 
-        public AppData() {
-
-        }
-    }
 }

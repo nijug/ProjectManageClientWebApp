@@ -1,30 +1,40 @@
-<!-- src/main/resources/templates/add-project.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Project</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-<h2>Add Project</h2>
-<form th:action="@{/projects/add}" method="post" th:object="${project}">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" th:value="${project?.name}" required><br>
+<div class="container">
+    <h2>Add Project</h2>
 
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="description" th:value="${project?.description}" required><br>
+    <form th:action="@{/projects/add}" method="post" th:object="${project}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${project?.name}" required>
 
-    <label for="dateStarted">Date Started:</label>
-    <input type="date" id="dateStarted" name="dateStarted" th:value="${project?.dateStarted}" required><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" th:value="${project?.description}" required>
 
-    <label for="dateEnded">Date Ended:</label>
-    <input type="date" id="dateEnded" name="dateEnded" th:value="${project?.dateEnded}" required><br>
+        <label for="dateStarted">Date Started:</label>
+        <input type="date" id="dateStarted" name="dateStarted" th:value="${project?.dateStarted}" required>
 
-    <label for="priority">Priority:</label>
-    <input type="text" id="priority" name="priority" th:value="${project?.priority}" required><br>
+        <label for="dateEnded">Date Ended:</label>
+        <input type="date" id="dateEnded" name="dateEnded" th:value="${project?.dateEnded}" required>
 
-    <button type="submit">Add Project</button>
-</form>
+        <label for="priority">Priority:</label>
+        <input type="text" id="priority" name="priority" th:value="${project?.priority}" required>
 
-<a th:href="@{/projects}">Back to Project List</a>
+        <button type="submit">Add Project</button>
+    </form>
+
+    <a th:href="@{/projects}" class="btn btn-secondary mt-3">Back to Project List</a>
+    <a th:href="@{/}" class="btn btn-secondary mt-3">Back to Main Page</a>
+</div>
 </body>
 </html>

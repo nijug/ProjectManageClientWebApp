@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Projects</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-<h2>Manage Projects</h2>
+<body class="bg-light">
+<div class="container">
+    <h2>Manage Projects</h2>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Date Started</th>
-        <th>Date Ended</th>
-        <th>Priority</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="project : ${projects}">
-        <td th:text="${project.name}"></td>
-        <td th:text="${project.description}"></td>
-        <td th:text="${project.dateStarted}"></td>
-        <td th:text="${project.dateEnded}"></td>
-        <td th:text="${project.priority}"></td>
-        <td>
-            <form th:action="@{/projects/edit/{id}(id=${project.id})}" method="get">
-                <input type="submit" value="Edit" />
-            </form>
-        </td>
-        <td>
-            <form th:action="@{/projects/delete/{id}(id=${project.id})}" method="post">
-                <input type="hidden" name="_method" value="delete" />
-            <input type="submit" value="Delete" />
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date Started</th>
+            <th>Date Ended</th>
+            <th>Priority</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.description}"></td>
+            <td th:text="${project.dateStarted}"></td>
+            <td th:text="${project.dateEnded}"></td>
+            <td th:text="${project.priority}"></td>
+            <td>
+                <form th:action="@{/projects/edit/{id}(id=${project.id})}" method="get">
+                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/projects/delete/{id}(id=${project.id})}" method="post">
+                    <input type="hidden" name="_method" value="delete" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-<a th:href="@{/projects}">Back to Project List</a>
+
+    <a th:href="@{/}" class="btn btn-secondary mt-3">Back to Main Page</a>
+</div>
 </body>
 </html>
