@@ -13,9 +13,14 @@
     <h2 class="text-center mt-4">Welcome to Project Management</h2>
 
     <div class="d-flex justify-content-center">
-        <a th:href="@{/projects/new}" class="btn btn-primary mt-3 mr-2">Add a New Project</a>
+        <a th:href="@{/projects/add}" class="btn btn-primary mt-3 mr-2">Add a New Project</a>
         <a th:href="@{/projects}" class="btn btn-secondary mt-3">View Projects</a>
     </div>
 </div>
+
+<form th:action="@{/logout}" method="post" th:hidden="true" id="logoutForm">
+    <input type="submit" value="Logout" hidden />
+</form>
+<a href="javascript: document.getElementById('logoutForm').submit()">Logout</a>
 </body>
 </html>

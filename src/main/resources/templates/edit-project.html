@@ -3,53 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title th:text="#{editProject}"></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/theme.js}"> </script>
+
 </head>
+<div th:insert="~{header :: site-header}"></div>
 <body class="bg-light">
 <div class="container">
-    <h2>Edit Project</h2>
-
     <form th:action="@{/projects/edit}" method="post" th:object="${project}" class="mt-4">
         <input type="hidden" th:field="*{id}">
-
         <div class="form-group">
-            <label for="name">Name:</label>
+            <label for="name" th:text="#{name}"></label>
             <input type="text" id="name" th:field="*{name}" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="description">Description:</label>
+            <label for="description" th:text="#{description}"></label>
             <input type="text" id="description" th:field="*{description}" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="dateStarted">Date Started:</label>
+            <label for="dateStarted" th:text="#{dateStarted}"></label>
             <input type="date" id="dateStarted" th:field="*{dateStarted}" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="dateEnded">Date Ended:</label>
+            <label for="dateEnded" th:text="#{dateEnded}"></label>
             <input type="date" id="dateEnded" th:field="*{dateEnded}" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="priority">Priority:</label>
+            <label for="priority" th:text="#{priority}"></label>
             <select id="priority" th:field="*{priority}" class="form-control" required>
-                <option value="LOW">Low</option>
-                <option value="MEDIUM">Medium</option>
-                <option value="HIGH">High</option>
+                <option value="Low" th:text="#{low}"></option>
+                <option value="Medium" th:text="#{medium}"></option>
+                <option value="High" th:text="#{high}"></option>
             </select>
         </div>
-
-
-        <button type="submit" class="btn btn-primary">Update Project</button>
+        <p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" class="error"></p>
+        <button type="submit" class="btn btn-primary" th:text="#{updateProject}"></button>
     </form>
-
-    <a th:href="@{/projects}" class="btn btn-secondary mt-3">Back to Project List</a>
-    <a th:href="@{/}" class="btn btn-secondary mt-3">Back to Main Page</a>
+    <a th:href="@{/projects}" class="btn btn-secondary mt-3" th:text="#{backToProjectList}"></a>
 </div>
 </body>
 </html>

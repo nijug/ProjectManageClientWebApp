@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<header th:fragment="site-header" class="d-flex justify-content-between align-items-center p-3 mb-3 bg-green border-bottom">
+    <h2 class="mb-0 text-white" th:text="${siteTitle}"></h2>
+    <div>
+        <!-- Dark Mode Toggle Switch -->
+        <label class="custom-switch">
+            <input type="checkbox" onclick="changeTheme()">
+            <span class="slider round"></span>
+        </label>
+        <!-- Language Buttons -->
+        <a th:href="@{/changeLanguage(lang='en')}" class="btn btn-light" role="button">
+            <img th:src="@{'/images/flags/en.png'}" width="20" height="20"> <span th:text="#{english}"></span>
+        </a>
+        <a th:href="@{/changeLanguage(lang='pl')}" class="btn btn-light" role="button">
+            <img th:src="@{'/images/flags/pl.png'}" width="20" height="20"> <span th:text="#{polish}"></span>
+        </a>
+    </div>
+</header>
+
+</body>
+</html>
