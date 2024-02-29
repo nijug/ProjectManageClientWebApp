@@ -18,8 +18,11 @@ You need to run api docker container first.
 Login with:
 - username: admin
 - password: admin
+
 to be able to use all endpoints.
+
 Login with:
 - username: user
 - password: pa
+
 to be able to use only GET endpoints.
